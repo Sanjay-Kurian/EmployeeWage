@@ -6,13 +6,17 @@ public class HelloMessage {
 		int PART_TIME_HOUR = 4;
 		int wage = 0;
 		int sum = 0;
-		for (int i=0;i<20;i++)
+		int day = 1;
+		int MAX_HOUR = 100;
+		int TOTAL_HOURS=0;
+		while (day <= 20 && TOTAL_HOURS <= MAX_HOUR)
 		{
 			double empCheck = Math.floor((Math.random()*10)%3);	
 			int check = (int)empCheck;
 			switch (check)
 			{
 			case 1:	wage = WAGE_PER_HOUR * FULL_DAY_HOUR;
+					TOTAL_HOURS = TOTAL_HOURS + FULL_DAY_HOUR;
 					System.out.println("Employee is present");
 					System.out.println("The wage is "+wage);
 			break;
@@ -21,10 +25,13 @@ public class HelloMessage {
 					System.out.println("The wage is "+wage);
 			break;
 			case 2:	wage = WAGE_PER_HOUR * PART_TIME_HOUR;
+					TOTAL_HOURS = TOTAL_HOURS + FULL_DAY_HOUR;
+					System.out.println("Employee is present");
 					System.out.println("The wage is "+wage);
 			break;
 			}
 			sum = sum + wage;
+			day++;
 		}
 		System.out.println("The total wage of the employee in a month "+sum);
 	}
